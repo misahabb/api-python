@@ -9,7 +9,7 @@ from resources.store import Store
 from resources.annonce import Annonce, AnnonceList
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://vutoatbranlozc:895a4b073925044c3f7c152ae135d665c18fadd20a7fae30b9581edb5c4786e6@ec2-54-217-222-254.eu-west-1.compute.amazonaws.com:5432/dbmgsggj5eljl1'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'jose'
 api = Api(app)
